@@ -1,63 +1,15 @@
 import sqlite3
 from datetime import datetime
-from typing import Optional, Union
 
-import dateutil.parser
 import pytz
-import requests
 from google.api_core.exceptions import Conflict, NotFound
-from requests.auth import HTTPBasicAuth
-import json
-from pydash import get as s_get
 from google.cloud import bigquery
-import os
 
-
-api_token = os.environ["JIRA_API_TOKEN"]
-AUTH = HTTPBasicAuth(os.environ["JIRA_API_EMAIL"], api_token)
-HEADERS = {"Accept": "application/json", "Content-Type": "application/json"}
-PARAMS = {}
-BASE_URL = "https://starkmvp.atlassian.net/rest/api/3/"
-
-
-class SQLiteDatabase(object):
-    """sqlite3 database class that holds our data"""
-
-    def __init__(self, db_name):
-        """Initialize db class variables"""
-        self.connection = sqlite3.connect(db_name)
-        self.cursor = self.connection.cursor()
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, ext_type, exc_value, traceback):
-        self.cursor.close()
-        if isinstance(exc_value, Exception):
-            self.connection.rollback()
-        else:
-            self.connection.commit()
-        self.connection.close()
-
-    def __del__(self):
-        self.connection.close()
-
-    def close(self):
-        self.connection.close()
-
-    def execute(self, sql):
-        self.cursor.execute(sql)
-
-    def drop_table(self, table_name):
-        self.cursor.execute("DROP TABLE IF EXISTS {}".format(table_name))
-
-    def commit(self):
-        """commit changes to database"""
-        self.connection.commit()
+from jiraslackpm.jira import get_all_users, get_info_from_issue, get_all_issues_by_user
 
 
 class BigQueryDatabase(object):
-    """sqlite3 database class that holds our data"""
+    """BigQuery database class that holds our data"""
 
     def __init__(self, project_id, db_name):
         """Initialize db class variables"""
@@ -144,6 +96,32 @@ class BigQueryDatabase(object):
         issues = self.create_table(issues_table_name, issues_schema)
         return users, issues
 
+
+class SQLiteDatabase(object):
+    """sqlite3 database class that holds our data"""
+
+    def __init__(self, db_name):
+        """Initialize db class variables"""
+        self.connection = sqlite3.connect(db_name)
+        self.cursor = self.connection.cursor()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, ext_type, exc_value, traceback):
+        self.cursor.close()
+        if isinstance(exc_value, Exception):
+            self.connection.rollback()
+        else:
+            self.connection.commit()
+        self.connection.close()
+
+    def __del__(self):
+        self.connection.close()
+
+    def close(self):
+        self.connection.close()
+
     def execute(self, sql):
         self.cursor.execute(sql)
 
@@ -153,104 +131,6 @@ class BigQueryDatabase(object):
     def commit(self):
         """commit changes to database"""
         self.connection.commit()
-
-
-def print_json(data: Union[dict, list], indent: int = 4) -> None:
-    print(json.dumps(data, sort_keys=True, indent=indent, separators=(",", ": ")))
-
-
-def call_api(uri: str, method="GET", headers=None, auth=AUTH, params=None) -> dict:
-    if params is None:
-        params = PARAMS
-    if headers is None:
-        headers = HEADERS
-    response = requests.request(method, uri, headers=headers, params=params, auth=auth)
-    return response.json()
-
-
-def get_all_users(pprint: bool = False) -> list:
-    response = []
-    uri = BASE_URL + "users/search"
-    offset = 0
-    condition = True
-    while condition:
-        params = {"startAt": offset}
-        users = call_api(uri, params=params)
-        if pprint:
-            print_json(users)
-        if users:
-            response += users
-            offset += 50
-        else:
-            condition = False
-    return response
-
-
-def get_all_issues_by_user(account_id: str, pprint=False) -> list:
-    uri = BASE_URL + "search"
-    response = []
-    offset = 0
-    while True:
-        query = {"jql": "assignee = {}".format(account_id), "startAt": offset}
-        issues = call_api(uri, params=query)
-        if pprint:
-            print_json(issues)
-        if issues.get('issues'):
-            response += issues.get('issues')
-            offset += 50
-        else:
-            break
-    return response
-
-
-def get_issues_in_current_week_by_user(account_id: str, pprint=False) -> list:
-    uri = BASE_URL + "search"
-    response = []
-    offset = 0
-    while True:
-        query = {
-            "jql": "assignee = {} and created >= startOfWeek()".format(account_id),
-            "startAt": offset,
-        }
-        issues = call_api(uri, params=query)
-        if pprint:
-            print_json(issues)
-        if issues.get('issues'):
-            response += issues.get('issues')
-            offset += 50
-        else:
-            break
-    return response
-
-
-def get_sp_brute_force(fields: dict, is_custom_field=False) -> Optional[int]:
-    for k, v in fields.items():
-        if isinstance(v, float) or isinstance(v, int):
-            if is_custom_field:
-                if "customfield" in k:
-                    return v
-            else:
-                return v
-    return
-
-
-def get_info_from_issue(issue: dict) -> dict:
-    return {
-        "story_points": get_sp_brute_force(
-            issue.get("fields", {}), is_custom_field=True
-        ),
-        "status": s_get(issue, "fields.status.statusCategory.name"),
-        "priority": s_get(issue, "fields.priority.name"),
-        "issue_id": issue.get("id"),
-        "issue_name": issue.get("key"),
-        "project_name": s_get(issue, "fields.project.name"),
-        "issue_summary": s_get(issue, "fields.summary"),
-        "creator": s_get(issue, "fields.creator.accountId"),
-        "reporter": s_get(issue, "fields.reporter.accountId"),
-        "created_at": str(dateutil.parser.parse(s_get(issue, "fields.created"))),
-        "updated_at": str(dateutil.parser.parse(s_get(issue, "fields.updated"))),
-        "issue_type": s_get(issue, "fields.issuetype.name"),
-    }
 
 
 def load_into_bigquery(project_id, database_name):
@@ -274,7 +154,11 @@ def load_into_bigquery(project_id, database_name):
                     }
                 ],
             )
-            print("Inserted user with ID {} and name {}".format(user["accountId"], user["displayName"]))
+            print(
+                "Inserted user with ID {} and name {}".format(
+                    user["accountId"], user["displayName"]
+                )
+            )
             if user["accountType"] == "atlassian":
                 issues = get_all_issues_by_user(user["accountId"])
                 records = []
@@ -293,6 +177,3 @@ def load_into_bigquery(project_id, database_name):
                         user["accountId"], user["accountType"]
                     )
                 )
-
-
-load_into_bigquery("k-ren-295903", "jira")
