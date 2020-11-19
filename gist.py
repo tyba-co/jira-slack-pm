@@ -2,6 +2,7 @@ import sqlite3
 from datetime import datetime
 from typing import Optional, Union
 
+import dateutil.parser
 import pytz
 import requests
 from google.api_core.exceptions import Conflict, NotFound
@@ -206,8 +207,7 @@ def get_issues_in_current_week_by_user(account_id: str, pprint=False) -> list:
     uri = BASE_URL + "search"
     response = []
     offset = 0
-    condition = True
-    while condition:
+    while True:
         query = {
             "jql": "assignee = {} and created >= startOfWeek()".format(account_id),
             "startAt": offset,
@@ -215,11 +215,11 @@ def get_issues_in_current_week_by_user(account_id: str, pprint=False) -> list:
         issues = call_api(uri, params=query)
         if pprint:
             print_json(issues)
-        if issues:
-            response += issues
+        if issues.get('issues'):
+            response += issues.get('issues')
             offset += 50
         else:
-            condition = False
+            break
     return response
 
 
@@ -247,8 +247,8 @@ def get_info_from_issue(issue: dict) -> dict:
         "issue_summary": s_get(issue, "fields.summary"),
         "creator": s_get(issue, "fields.creator.accountId"),
         "reporter": s_get(issue, "fields.reporter.accountId"),
-        "created_at": s_get(issue, "fields.created"),
-        "updated_at": s_get(issue, "fields.updated"),
+        "created_at": str(dateutil.parser.parse(s_get(issue, "fields.created"))),
+        "updated_at": str(dateutil.parser.parse(s_get(issue, "fields.updated"))),
         "issue_type": s_get(issue, "fields.issuetype.name"),
     }
 
@@ -257,7 +257,7 @@ def load_into_bigquery(project_id, database_name):
     with BigQueryDatabase(project_id, database_name) as db:
         users_table, issues_table = db.initialize_tales()
         print(users_table, issues_table)
-        users = get_all_users()[:10]
+        users = get_all_users()
         u = datetime.utcnow()
         now = u.replace(tzinfo=pytz.timezone("America/Bogota"))
         for user in users:
