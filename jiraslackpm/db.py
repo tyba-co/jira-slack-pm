@@ -72,7 +72,7 @@ class BigQueryDatabase(object):
             bigquery.SchemaField("account_type", "STRING", mode="REQUIRED"),
             bigquery.SchemaField("active", "BOOL", mode="REQUIRED"),
             bigquery.SchemaField("display_name", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("updated_at", "TIMESTAMP", mode="REQUIRED"),
+            bigquery.SchemaField("index_date", "TIMESTAMP", mode="REQUIRED"),
             bigquery.SchemaField("email", "STRING", mode="NULLABLE"),
         ]
         print("Initializing users table...")
@@ -88,9 +88,11 @@ class BigQueryDatabase(object):
             bigquery.SchemaField("issue_summary", "STRING", mode="REQUIRED"),
             bigquery.SchemaField("creator", "STRING", mode="REQUIRED"),
             bigquery.SchemaField("reporter", "STRING", mode="REQUIRED"),
+            bigquery.SchemaField("assignee", "STRING", mode="REQUIRED"),
             bigquery.SchemaField("issue_type", "STRING", mode="REQUIRED"),
             bigquery.SchemaField("created_at", "TIMESTAMP", mode="REQUIRED"),
             bigquery.SchemaField("updated_at", "TIMESTAMP", mode="REQUIRED"),
+            bigquery.SchemaField("index_date", "TIMESTAMP", mode="REQUIRED")
         ]
         print("Initializing issues table...")
         issues = self.create_table(issues_table_name, issues_schema)
@@ -149,7 +151,7 @@ def load_into_bigquery(project_id, database_name):
                         "account_type": user["accountType"],
                         "active": user["active"],
                         "display_name": user["displayName"],
-                        "updated_at": str(now),
+                        "index_date": str(now),
                         "email": None,
                     }
                 ],
@@ -163,7 +165,10 @@ def load_into_bigquery(project_id, database_name):
                 issues = get_all_issues_by_user(user["accountId"])
                 records = []
                 for issue in issues:
-                    records.append(get_info_from_issue(issue))
+                    parsed_issue = get_info_from_issue(issue)
+                    parsed_issue["assignee"] = user["accountId"]
+                    parsed_issue["index_date"] = str(now)
+                    records.append(parsed_issue)
                 if records:
                     db.insert_records("Issue", records)
                 print(
