@@ -96,6 +96,7 @@ def get_info_from_issue(issue: dict) -> dict:
             issue.get("fields", {}), is_custom_field=True
         ),
         "status": s_get(issue, "fields.status.statusCategory.name"),
+        "stage": s_get(issue, "fields.status.name"),
         "priority": s_get(issue, "fields.priority.name"),
         "issue_id": issue.get("id"),
         "issue_name": issue.get("key"),

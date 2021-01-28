@@ -3,7 +3,8 @@ from datetime import datetime
 
 import pytz
 from google.api_core.exceptions import Conflict, NotFound
-from google.cloud import bigquery
+import google.cloud.bigquery as bigquery
+from google.oauth2 import service_account
 
 from jiraslackpm.jira import get_all_users, get_info_from_issue, get_all_issues_by_user
 
@@ -13,6 +14,8 @@ class BigQueryDatabase(object):
 
     def __init__(self, project_id, db_name):
         """Initialize db class variables"""
+        #credentials = service_account.Credentials.from_service_account_file("/Users/luisgomezamado/Desktop/tyba/bigquery_key/K-REN-d33e91acdf23.json", scopes=["https://www.googleapis.com/auth/cloud-platform"],)
+        #self.client = bigquery.Client(credentials=credentials, project=project_id,)
         self.client = bigquery.Client(project=project_id)
         self.dataset_id = "{}.{}".format(self.client.project, db_name)
         try:
@@ -81,6 +84,7 @@ class BigQueryDatabase(object):
         issues_schema = [
             bigquery.SchemaField("story_points", "NUMERIC", mode="NULLABLE"),
             bigquery.SchemaField("status", "STRING", mode="REQUIRED"),
+            bigquery.SchemaField("stage", "STRING", mode="REQUIRED"),
             bigquery.SchemaField("priority", "STRING", mode="REQUIRED"),
             bigquery.SchemaField("issue_id", "STRING", mode="REQUIRED"),
             bigquery.SchemaField("issue_name", "STRING", mode="REQUIRED"),
