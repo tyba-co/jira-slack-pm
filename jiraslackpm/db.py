@@ -1,12 +1,14 @@
 import sqlite3
+import datetime as dt2
 from datetime import datetime
 
+import dateutil.parser
 import pytz
 from google.api_core.exceptions import Conflict, NotFound
 import google.cloud.bigquery as bigquery
 from google.oauth2 import service_account
 
-from jiraslackpm.jira import get_all_users, get_info_from_issue, get_all_issues_by_user
+from jira import get_all_users, get_info_from_issue, get_all_issues_by_user
 
 
 class BigQueryDatabase(object):
@@ -66,9 +68,13 @@ class BigQueryDatabase(object):
         else:
             print("Encountered errors while inserting rows: {}".format(errors))
 
-    def initialize_tales(
+    def initialize_tables(
         self, users_table_name: str = "User", issues_table_name: str = "Issue"
     ):
+
+        issues_table_id = "{}.{}".format(self.dataset_id, issues_table_name)
+        users_table_id = "{}.{}".format(self.dataset_id, users_table_name)
+
         self.delete_table(users_table_name)
         users_schema = [
             bigquery.SchemaField("account_id", "STRING", mode="REQUIRED"),
@@ -80,26 +86,31 @@ class BigQueryDatabase(object):
         ]
         print("Initializing users table...")
         users = self.create_table(users_table_name, users_schema)
-        self.delete_table(issues_table_name)
-        issues_schema = [
-            bigquery.SchemaField("story_points", "NUMERIC", mode="NULLABLE"),
-            bigquery.SchemaField("status", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("stage", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("priority", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("issue_id", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("issue_name", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("project_name", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("issue_summary", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("creator", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("reporter", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("assignee", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("issue_type", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("created_at", "TIMESTAMP", mode="REQUIRED"),
-            bigquery.SchemaField("updated_at", "TIMESTAMP", mode="REQUIRED"),
-            bigquery.SchemaField("index_date", "TIMESTAMP", mode="REQUIRED")
-        ]
-        print("Initializing issues table...")
-        issues = self.create_table(issues_table_name, issues_schema)
+        
+        try:
+            self.client.get_table(issues_table_id) 
+            issues = "Ready to upload new or updated issues for yesterday"
+
+        except NotFound:
+            issues_schema = [
+                bigquery.SchemaField("story_points", "NUMERIC", mode="NULLABLE"),
+                bigquery.SchemaField("status", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("stage", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("priority", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("issue_id", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("issue_name", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("project_name", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("issue_summary", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("creator", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("reporter", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("assignee", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("issue_type", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("created_at", "TIMESTAMP", mode="REQUIRED"),
+                bigquery.SchemaField("updated_at", "TIMESTAMP", mode="REQUIRED"),
+                bigquery.SchemaField("index_date", "TIMESTAMP", mode="REQUIRED")
+            ]
+            print("Initializing issues table...")
+            issues = self.create_table(issues_table_name, issues_schema)
         return users, issues
 
 
@@ -141,7 +152,7 @@ class SQLiteDatabase(object):
 
 def load_into_bigquery(project_id, database_name):
     with BigQueryDatabase(project_id, database_name) as db:
-        users_table, issues_table = db.initialize_tales()
+        users_table, issues_table = db.initialize_tables()
         print(users_table, issues_table)
         users = get_all_users()
         u = datetime.utcnow()
@@ -172,11 +183,25 @@ def load_into_bigquery(project_id, database_name):
                     parsed_issue = get_info_from_issue(issue)
                     parsed_issue["assignee"] = user["accountId"]
                     parsed_issue["index_date"] = str(now)
-                    records.append(parsed_issue)
+                    created_date = dateutil.parser.parse(parsed_issue["created_at"])
+                    updated_date = dateutil.parser.parse(parsed_issue["updated_at"])
+                    last_day_date = now - dt2.timedelta(1)
+                    if created_date > last_day_date or updated_date > last_day_date:
+                        records.append(parsed_issue)
+
+                    """
+                    if created_date.day == 29 and created_date.year == 2021:
+                        print("Created date is today")
+                    elif updated_date.day == 29 and updated_date.year == 2021:
+                        print("Updated date is today")
+                    else:
+                        records.append(parsed_issue)
+                    """
+                        
                 if records:
                     db.insert_records("Issue", records)
                 print(
-                    "Inserted {} issues for user ID: {}".format(
+                    "Inserted {} new issues for user ID: {}".format(
                         len(records), user["accountId"]
                     )
                 )

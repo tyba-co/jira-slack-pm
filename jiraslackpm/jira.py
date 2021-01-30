@@ -6,7 +6,7 @@ import requests
 from pydash import get as s_get
 from requests.auth import HTTPBasicAuth
 
-from jiraslackpm.utils import print_json
+from utils import print_json
 
 api_token = os.environ["JIRA_API_TOKEN"]
 AUTH = HTTPBasicAuth(os.environ["JIRA_API_EMAIL"], api_token)
