@@ -16,8 +16,6 @@ class BigQueryDatabase(object):
 
     def __init__(self, project_id, db_name):
         """Initialize db class variables"""
-        #credentials = service_account.Credentials.from_service_account_file("/Users/luisgomezamado/Desktop/tyba/bigquery_key/K-REN-d33e91acdf23.json", scopes=["https://www.googleapis.com/auth/cloud-platform"],)
-        #self.client = bigquery.Client(credentials=credentials, project=project_id,)
         self.client = bigquery.Client(project=project_id)
         self.dataset_id = "{}.{}".format(self.client.project, db_name)
         try:
@@ -71,26 +69,35 @@ class BigQueryDatabase(object):
     def initialize_tables(
         self, users_table_name: str = "User", issues_table_name: str = "Issue"
     ):
-
+        #ids to check the tables existence
         issues_table_id = "{}.{}".format(self.dataset_id, issues_table_name)
         users_table_id = "{}.{}".format(self.dataset_id, users_table_name)
 
-        self.delete_table(users_table_name)
-        users_schema = [
-            bigquery.SchemaField("account_id", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("account_type", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("active", "BOOL", mode="REQUIRED"),
-            bigquery.SchemaField("display_name", "STRING", mode="REQUIRED"),
-            bigquery.SchemaField("index_date", "TIMESTAMP", mode="REQUIRED"),
-            bigquery.SchemaField("email", "STRING", mode="NULLABLE"),
-        ]
-        print("Initializing users table...")
-        users = self.create_table(users_table_name, users_schema)
+        #if the user table does exist, it doesn't have to be initialized again.
+        try:
+            self.client.get_table(users_table_id)
+            users = "Users are already uploaded"
         
+        #if it doesn't exist, it has to be created with the following schema.
+        except NotFound:
+            self.delete_table(users_table_name)
+            users_schema = [
+                bigquery.SchemaField("account_id", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("account_type", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("active", "BOOL", mode="REQUIRED"),
+                bigquery.SchemaField("display_name", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("index_date", "TIMESTAMP", mode="REQUIRED"),
+                bigquery.SchemaField("email", "STRING", mode="NULLABLE"),
+            ]
+            print("Initializing users table...")
+            users = self.create_table(users_table_name, users_schema)
+        
+        ##if the user table does exist, it doesn't have to be initialized again.
         try:
             self.client.get_table(issues_table_id) 
             issues = "Ready to upload new or updated issues for yesterday"
 
+        #if it doesn't exist, it has to be created with the following schema.
         except NotFound:
             issues_schema = [
                 bigquery.SchemaField("story_points", "NUMERIC", mode="NULLABLE"),
@@ -158,7 +165,12 @@ def load_into_bigquery(project_id, database_name):
         u = datetime.utcnow()
         now = u.replace(tzinfo=pytz.timezone("America/Bogota"))
         for user in users:
-            db.insert_records(
+            
+            if user["accountType"] == "atlassian":
+
+                #Insertion of users on stand by.
+                """
+                db.insert_records(
                 "User",
                 [
                     {
@@ -167,16 +179,13 @@ def load_into_bigquery(project_id, database_name):
                         "active": user["active"],
                         "display_name": user["displayName"],
                         "index_date": str(now),
-                        "email": None,
+                        "email": user.get("emailAddress", None),
                     }
                 ],
-            )
-            print(
-                "Inserted user with ID {} and name {}".format(
-                    user["accountId"], user["displayName"]
                 )
-            )
-            if user["accountType"] == "atlassian":
+                print("Inserted user with ID {} and name {}".format(user["accountId"], user["displayName"]))
+                """
+
                 issues = get_all_issues_by_user(user["accountId"])
                 records = []
                 for issue in issues:
@@ -188,15 +197,6 @@ def load_into_bigquery(project_id, database_name):
                     last_day_date = now - dt2.timedelta(1)
                     if created_date > last_day_date or updated_date > last_day_date:
                         records.append(parsed_issue)
-
-                    """
-                    if created_date.day == 29 and created_date.year == 2021:
-                        print("Created date is today")
-                    elif updated_date.day == 29 and updated_date.year == 2021:
-                        print("Updated date is today")
-                    else:
-                        records.append(parsed_issue)
-                    """
                         
                 if records:
                     db.insert_records("Issue", records)
@@ -211,3 +211,4 @@ def load_into_bigquery(project_id, database_name):
                         user["accountId"], user["accountType"]
                     )
                 )
+                
