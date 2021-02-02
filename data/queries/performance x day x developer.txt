@@ -1,0 +1,16 @@
+select top_issues_dev.assignee, top_issues_dev.display_name, top_issues_dev.email, avg(top_issues_dev.story_points/top_issues_dev.day_diff) as avg_points, CURRENT_DATE("UTC-5:00") as index_date from
+(select issue.story_points, 
+        issue.stage,
+        issue.updated_at, 
+        issue.created_at,
+        issue.assignee, 
+        user.display_name,
+        user.email, 
+        timestamp_diff(CURRENT_TIMESTAMP(), issue.updated_at, DAY) as day_diff
+    from `k-ren-295903.jira.Issue` as issue, `k-ren-295903.jira.User` as user
+    where user.account_id = issue.assignee 
+    and issue.stage = "ENV: DEV"
+    and timestamp_diff(CURRENT_TIMESTAMP(), issue.updated_at, DAY) < 7 
+    order by story_points asc) as top_issues_dev
+group by top_issues_dev.assignee, top_issues_dev.display_name, top_issues_dev.email
+order by avg_points desc
