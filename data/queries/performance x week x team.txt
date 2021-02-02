@@ -1,5 +1,4 @@
-select team_points.project_name, avg(team_points.avg_points ) as avg_points,CURRENT_DATE("UTC-5:00") as index_date from 
- (select top_issues_dev.project_name, avg(top_issues_dev.story_points/top_issues_dev.day_diff) as avg_points, CURRENT_DATE("UTC-5:00") as index_date 
+select top_issues_dev.project_name, avg(top_issues_dev.story_points/top_issues_dev.day_diff) as avg_points, CURRENT_DATE("UTC-5:00") as index_date 
  from (select issue.story_points, 
             issue.stage,
             issue.updated_at, 
@@ -14,6 +13,4 @@ select team_points.project_name, avg(team_points.avg_points ) as avg_points,CURR
         and issue.stage = "ENV: DEV"
         and timestamp_diff(CURRENT_TIMESTAMP(), issue.updated_at, DAY) < 7 
         order by story_points asc) as top_issues_dev
-  group by top_issues_dev.assignee, top_issues_dev.display_name, top_issues_dev.project_name,top_issues_dev.email) as team_points
-group by team_points.project_name
-order by avg_points desc
+  group by top_issues_dev.project_name

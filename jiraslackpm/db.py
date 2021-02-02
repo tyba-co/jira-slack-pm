@@ -200,7 +200,7 @@ def load_users_into_bigquery(project_id, database_name):
                 print("Inserted user with ID {} and name {}".format(user["accountId"], user["displayName"]))
                 
 
-def load_into_bigquery(project_id, database_name):
+def load_new_issues_into_bigquery(project_id, database_name):
     with BigQueryDatabase(project_id, database_name) as db:
         users_table, issues_table = db.initialize_tables()
         print(users_table, issues_table)
@@ -210,24 +210,6 @@ def load_into_bigquery(project_id, database_name):
         for user in users:
             
             if user["accountType"] == "atlassian":
-
-                #Insertion of users on stand by.
-                """
-                db.insert_records(
-                "User",
-                [
-                    {
-                        "account_id": user["accountId"],
-                        "account_type": user["accountType"],
-                        "active": user["active"],
-                        "display_name": user["displayName"],
-                        "index_date": str(now),
-                        "email": user.get("emailAddress", None),
-                    }
-                ],
-                )
-                print("Inserted user with ID {} and name {}".format(user["accountId"], user["displayName"]))
-                """
 
                 issues = get_all_issues_by_user(user["accountId"])
                 records = []
