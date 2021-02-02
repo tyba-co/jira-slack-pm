@@ -9,7 +9,7 @@ import google.cloud.bigquery as bigquery
 from google.oauth2 import service_account
 
 from jira import get_all_users, get_info_from_issue, get_all_issues_by_user
-
+from utils import get_users_info
 
 class BigQueryDatabase(object):
     """BigQuery database class that holds our data"""
@@ -156,6 +156,49 @@ class SQLiteDatabase(object):
         """commit changes to database"""
         self.connection.commit()
 
+def load_users_into_bigquery(project_id, database_name):
+    with BigQueryDatabase(project_id, database_name) as db:
+        db.delete_table("User")
+        users_table_id = "{}.{}".format(db.dataset_id, "User")
+        #if the user table does exist, it doesn't have to be initialized again.
+        try:
+            db.client.get_table(users_table_id)
+            users = "Users are already uploaded"
+    
+        #if it doesn't exist, it has to be created with the following schema.
+        except NotFound:
+            users_schema = [
+                bigquery.SchemaField("account_id", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("account_type", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("active", "BOOL", mode="REQUIRED"),
+                bigquery.SchemaField("display_name", "STRING", mode="REQUIRED"),
+                bigquery.SchemaField("index_date", "TIMESTAMP", mode="REQUIRED"),
+                bigquery.SchemaField("email", "STRING", mode="NULLABLE"),
+            ]
+            print("Initializing users table...")
+            users = db.create_table("User", users_schema)
+            users = get_all_users()
+            info_users = get_users_info()
+            u = datetime.utcnow()
+            now = u.replace(tzinfo=pytz.timezone("America/Bogota"))
+        
+        for user in users:
+            if user["accountType"] == "atlassian" and user['active'] == True:
+                db.insert_records(
+                    "User",
+                    [
+                        {
+                            "account_id": user["accountId"],
+                            "account_type": user["accountType"],
+                            "active": user["active"],
+                            "display_name": user["displayName"],
+                            "index_date": str(now),
+                            "email": info_users[info_users['id'] == user["accountId"]]['email'].iloc[0],
+                        }
+                    ],
+                    )
+                print("Inserted user with ID {} and name {}".format(user["accountId"], user["displayName"]))
+                
 
 def load_into_bigquery(project_id, database_name):
     with BigQueryDatabase(project_id, database_name) as db:

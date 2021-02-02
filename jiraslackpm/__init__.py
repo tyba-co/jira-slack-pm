@@ -3,7 +3,7 @@ import db
 
 def main():
 
-    db.load_into_bigquery("k-ren-295903","jira")
+    db.load_users_into_bigquery("k-ren-295903","jira")
 
     """
     variable = jira.get_all_users()

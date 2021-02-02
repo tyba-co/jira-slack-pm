@@ -1,0 +1,184 @@
+groupname,id,name,email,active,created,Last seen in Jira Software,Last seen in Confluence,Jira Software,Confluence
+confluence-users,5e602a54cf54800ce3a00b42,Diana Marcela Muñoz Ducuara,diana@tyba.com.co,Yes,4 Mar 2020,28 Jan 2021,16 Dec 2020,Yes,Yes
+confluence-users,5daf63c82fba7b0db2f34c87,Carlos Alberto Montoya Cantillo,carlos@tyba.com.co,Yes,22 Oct 2019,1 Feb 2021,18 Jan 2021,Yes,Yes
+confluence-users,5cffc50c1854c30c01325622,Mayra Lopez,mayra@tyba.com.co,Yes,11 Jun 2019,25 Jan 2021,21 Jan 2021,Yes,Yes
+confluence-users,5e4711d64298990c97de393f,Maria Angelica Rosales Marchena,angelica@tyba.com.co,Yes,9 Mar 2020,Never logged in,8 Sep 2020,Yes,Yes
+confluence-users,5ed40543037d930c16aee059,Mauricio Angarita,mauricio@tyba.com.co,Yes,25 Jun 2020,24 Nov 2020,24 Nov 2020,Yes,Yes
+confluence-users,5f68cdb1cf5999006aa93f25,Julian Rios Castañeda,julianrios@tyba.com.co,Yes,21 Sep 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+confluence-users,5efd043ad630ac0bb021e3f9,Paula Vallejo,paula@tyba.com.co,Yes,1 Jul 2020,1 Feb 2021,26 Jan 2021,Yes,Yes
+confluence-users,5efd15580e8e590bafd60ca9,David Chaves Tamayo,davidchaves@tyba.com.co,Yes,1 Jul 2020,29 Jan 2021,29 Jan 2021,Yes,Yes
+confluence-users,5e15f5c762aed90daa493c3d,Samuel Useche,samuel@tyba.com.co,Yes,8 Jan 2020,28 Jan 2021,7 Jan 2021,Yes,Yes
+confluence-users,5f3c1e8e42959b003982c8ec,John Stiben Pérez Brand,stiben@tyba.com.co,Yes,18 Aug 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+confluence-users,5f77259e6029960076b69340,Esteban Gaviria Restrepo,esteban@tyba.com.co,Yes,2 Oct 2020,1 Feb 2021,26 Jan 2021,Yes,Yes
+confluence-users,5e9f96e761f0e70c113537a1,Juan Camilo Pedroza Maury,juank@tyba.com.co,Yes,22 Apr 2020,20 Jan 2021,8 Jan 2021,Yes,Yes
+confluence-users,5d5d73f7e09baa0d7487809c,Johan Velasquez,johan@tyba.com.co,Yes,21 Aug 2019,29 Jan 2021,25 Jan 2021,Yes,Yes
+devs,5d5d73f7e09baa0d7487809c,Johan Velasquez,johan@tyba.com.co,Yes,21 Aug 2019,29 Jan 2021,25 Jan 2021,Yes,Yes
+confluence-users,5cf6d1d68ba9c50f2f945c05,Robinson Rueda,robinson@tyba.com.co,Yes,4 Jun 2019,1 Feb 2021,29 Jan 2021,Yes,Yes
+devs,5cf6d1d68ba9c50f2f945c05,Robinson Rueda,robinson@tyba.com.co,Yes,4 Jun 2019,1 Feb 2021,29 Jan 2021,Yes,Yes
+confluence-users,5e011726e3b48c0daa0dbb33,Miguel Zuñiga,miguel@tyba.com.co,Yes,23 Dec 2019,22 Jan 2021,22 Jan 2021,Yes,Yes
+confluence-users,5e387377b1188b0cbc75ba49,Bernardo Vargas Ocampo,bernardo@tyba.com.co,Yes,3 Feb 2020,14 Oct 2020,Never logged in,Yes,Yes
+confluence-users,5f46d307fdc3f5003ffaaffb,John Stiben Perez Brand,john@tyba.com.co,Yes,26 Aug 2020,Never logged in,27 Aug 2020,No,Yes
+confluence-users,5ed664f0afea830c1c6b7e0a,Julián Mora Salazar,julian@tyba.com.co,Yes,2 Jun 2020,1 Feb 2021,30 Nov 2020,Yes,Yes
+confluence-users,5c657a387bc26f6fb6257010,Valdemaro Mendoza,valdemaro@krealo.pe,Yes,14 Feb 2019,15 Oct 2020,21 Oct 2020,Yes,Yes
+jira-software-users,5ed6f15401cf4e0c23db8894,Alonso Olaechea,aolaechea@credicorpcapital.com,Yes,1 Jul 2020,1 Jul 2020,Never logged in,Yes,No
+jira-software-users,5e9f5e472632500c19eebbe8,Alejandro Hoyos Orozco,alejandro@tyba.com.co,Yes,22 Apr 2020,22 Jan 2021,18 Jan 2021,Yes,Yes
+confluence-users,5e9f5e472632500c19eebbe8,Alejandro Hoyos Orozco,alejandro@tyba.com.co,Yes,22 Apr 2020,22 Jan 2021,18 Jan 2021,Yes,Yes
+confluence-users,5c657a369854722ed67784b6,Ana María Ospina,ana@krealo.pe,Yes,14 Feb 2019,28 May 2020,2 Jun 2020,Yes,Yes
+jira-software-users,5c657a369854722ed67784b6,Ana María Ospina,ana@krealo.pe,Yes,14 Feb 2019,28 May 2020,2 Jun 2020,Yes,Yes
+confluence-users,5e17470b61d95d0d9aa6a222,Denny Widakr Segura Diaz,denny@tyba.com.co,Yes,9 Jan 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+devs,5e17470b61d95d0d9aa6a222,Denny Widakr Segura Diaz,denny@tyba.com.co,Yes,9 Jan 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+devs,5dc1ead5828b490c5cc5c04c,Helmer Avendaño,helmer@tyba.com.co,Yes,5 Nov 2019,1 Feb 2021,27 Jan 2021,Yes,Yes
+confluence-users,5dc1ead5828b490c5cc5c04c,Helmer Avendaño,helmer@tyba.com.co,Yes,5 Nov 2019,1 Feb 2021,27 Jan 2021,Yes,Yes
+confluence-users,5d2388099c0d030c2977c92d,Lucho Suárez,luchotes@tektonlabs.com,Yes,25 Feb 2020,10 Aug 2020,7 May 2020,Yes,Yes
+confluence-users,70121:60b7fa95-1d02-402c-a6c6-4074bc694547,Nicolas Daniel Redondo,nicolasr@tyba.com.co,Yes,19 Aug 2020,Never logged in,20 Nov 2020,No,Yes
+confluence-users,5fda528b208dbf0107dee10a,Omar Cardenas Fernandez,omar@tyba.com.co,Yes,16 Dec 2020,1 Feb 2021,17 Jan 2021,Yes,Yes
+confluence-users,5f0cd77ce5efc1001b9c6f22,Camila Pantoja Gomez,camila@tyba.com.co,No,13 Jul 2020,9 Jan 2021,8 Jan 2021,Yes,Yes
+confluence-users,5d5d6370eb84cb0cfcc8d2ae,Nicolas Muñoz,nicolas@tyba.com.co,No,21 Aug 2019,17 Nov 2020,1 Oct 2020,Yes,Yes
+confluence-users,5ed69ce2620b1d0c168fe4bc,Miguel Angel Proaño,angel@tyba.com.co,Yes,2 Oct 2020,Never logged in,Never logged in,No,Yes
+confluence-users,5dcd727e99e7ea0c60b0dbf4,Victor Manuel Villalba Torres,victor@tyba.com.co,Yes,14 Nov 2019,1 Feb 2021,1 Feb 2021,Yes,Yes
+confluence-users,5fe0b969dd5eb50108390324,Guerra,andresguerra@tyba.com.co,Yes,21 Dec 2020,29 Jan 2021,29 Jan 2021,Yes,Yes
+confluence-users,5cf6d1d5c90d790e902d67a3,Orlando Sabogal,orlando@tyba.com.co,Yes,4 Jun 2019,19 Jan 2021,19 Jan 2021,Yes,Yes
+devs,5cf6d1d5c90d790e902d67a3,Orlando Sabogal,orlando@tyba.com.co,Yes,4 Jun 2019,19 Jan 2021,19 Jan 2021,Yes,Yes
+confluence-users,5e5d2b0c691b8a0c95c48783,Carlos Andres Ariza,carlosa@tyba.com.co,Yes,2 Mar 2020,28 Jan 2021,28 Jan 2021,Yes,Yes
+confluence-users,5e0511b9efa19b0e976a4ada,Carlos Guillermo Baron Rico,guillermo@tyba.com.co,Yes,26 Dec 2019,27 Jan 2021,16 Sep 2020,Yes,Yes
+confluence-users,5ef4d40060d3c80ac91403cb,Juan Felipe Luna Bejarano,juanfelipe@tyba.com.co,Yes,26 Jun 2020,29 Jan 2021,21 Dec 2020,Yes,Yes
+confluence-users,5e3c6f65ed9eaa0c98b6ed8a,Luis Patt,luis@tyba.com.co,Yes,18 Dec 2020,12 Aug 2020,6 Aug 2020,No,Yes
+confluence-users,5fbd87392730d80076a27be0,Javier Lozano Brochero,javierlozano@tyba.com.co,Yes,25 Nov 2020,Never logged in,10 Dec 2020,No,Yes
+confluence-users,5e332e22ccbf660cb39b2397,salvador.tyba,salvador@tyba.com.co,Yes,30 Jan 2020,1 Feb 2021,29 Jan 2021,Yes,Yes
+confluence-users,5c8fdcae627d3b2d0163b896,Gabriel Farah,gabriel@krealo.pe,Yes,18 Mar 2019,25 Jan 2021,14 Jan 2021,Yes,Yes
+jira-administrators,5c8fdcae627d3b2d0163b896,Gabriel Farah,gabriel@krealo.pe,Yes,18 Mar 2019,25 Jan 2021,14 Jan 2021,Yes,Yes
+administrators,5c8fdcae627d3b2d0163b896,Gabriel Farah,gabriel@krealo.pe,Yes,18 Mar 2019,25 Jan 2021,14 Jan 2021,Yes,Yes
+confluence-users,5dcb2c5191842c0deafca03b,Ricardo Andres Bejarano,ricardo@tyba.com.co,Yes,12 Nov 2019,1 Feb 2021,27 May 2020,Yes,Yes
+devs,5dcb2c5191842c0deafca03b,Ricardo Andres Bejarano,ricardo@tyba.com.co,Yes,12 Nov 2019,1 Feb 2021,27 May 2020,Yes,Yes
+confluence-users,5efd155aa115ac0bb53726b2,Ricardo Bohorquez Marulanda,ricardoandres@tyba.com.co,Yes,1 Jul 2020,1 Feb 2021,31 Jan 2021,Yes,Yes
+confluence-users,5dc5bb658026090dfca91423,Claudia Silva,claudia@tyba.com.co,Yes,8 Nov 2019,18 Jan 2021,14 Jan 2021,Yes,Yes
+confluence-users,5d6d83d295fbcc0c341d7a88,Leidy Reyes,leidy@tyba.com.co,Yes,2 Sep 2019,1 Feb 2021,29 Jan 2021,Yes,Yes
+confluence-users,5e5d4312924db10e74b988d1,Juan Manuel Rodríguez Barragán,juanmanuel@tyba.com.co,Yes,2 Mar 2020,26 Jan 2021,2 Dec 2020,Yes,Yes
+confluence-users,5e668dd67653310cfe8223a4,Juan Galvis Alzate,juangalalz@tyba.com.co,No,9 Mar 2020,14 Nov 2020,10 Aug 2020,Yes,Yes
+devs,5e668dd67653310cfe8223a4,Juan Galvis Alzate,juangalalz@tyba.com.co,No,9 Mar 2020,14 Nov 2020,10 Aug 2020,Yes,Yes
+confluence-users,5d519c2553184f0da389c93c,Henry Guzman,henry@tyba.com.co,Yes,12 Aug 2019,1 Feb 2021,19 Aug 2020,Yes,Yes
+confluence-users,5e261ce8a2f3fc0ca0d5587d,Lina Kuratomi,lina@tyba.com.co,Yes,20 Jan 2020,1 Feb 2021,29 Jan 2021,Yes,Yes
+confluence-users,5efe070824882a0bb5ffd845,Juana De la Hoz Rojano,juana@tyba.com.co,No,2 Jul 2020,9 Nov 2020,20 Oct 2020,Yes,Yes
+confluence-users,5d9ba5e30336040dbfcb9923,Rafael De Guglielmo,rafael@tyba.com.co,Yes,7 Oct 2019,21 Jan 2021,14 Jan 2021,Yes,Yes
+confluence-users,5cf6d1d3c90d790e902d67a2,Daniel Giraldo,daniel@tyba.com.co,Yes,4 Jun 2019,1 Feb 2021,22 Jan 2021,Yes,Yes
+devs,5cf6d1d3c90d790e902d67a2,Daniel Giraldo,daniel@tyba.com.co,Yes,4 Jun 2019,1 Feb 2021,22 Jan 2021,Yes,Yes
+confluence-users,5f19eafcce15e80026946f7c,Cristhian Peña Jaimes,cristhian@tyba.com.co,Yes,23 Jul 2020,29 Jan 2021,29 Jan 2021,Yes,Yes
+confluence-users,5d14d71df327650c122e7c5e,Benjamin Sanchez,benjamin@tyba.com.co,Yes,27 Jun 2019,15 Jan 2021,14 Dec 2020,Yes,Yes
+confluence-users,5cec151cad53410f201a1503,Francisco Ricaurte,francisco@tyba.com.co,Yes,27 May 2019,1 Feb 2021,26 Jan 2021,Yes,Yes
+devs,5cec151cad53410f201a1503,Francisco Ricaurte,francisco@tyba.com.co,Yes,27 May 2019,1 Feb 2021,26 Jan 2021,Yes,Yes
+confluence-users,70121:464f4020-de7a-4c9b-8e34-1f53d7978c5b,Isabela Baez Castilla,isabela@tyba.com.co,Yes,27 Jul 2020,11 Dec 2020,31 Aug 2020,Yes,Yes
+confluence-users,600ec654f564b60071f7791c,Luis Gomez Amado,luisgomez@tyba.com.co,Yes,25 Jan 2021,1 Feb 2021,Never logged in,Yes,Yes
+confluence-users,5e0e0f370af0d70e911c6d47,Jesus Zambrano,jesus@tyba.com.co,Yes,2 Jan 2020,1 Feb 2021,26 Jan 2021,Yes,Yes
+administrators,5e0e0f370af0d70e911c6d47,Jesus Zambrano,jesus@tyba.com.co,Yes,2 Jan 2020,1 Feb 2021,26 Jan 2021,Yes,Yes
+confluence-users,5e1caa026be36c0ca8b23163,Francisco Javier Gonzalez,javier@tyba.com.co,Yes,13 Jan 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+confluence-users,5dcb2c51d545f50de9ee9a46,Yonnathan Alfonso Henao Restrepo,yonnathan@tyba.com.co,Yes,12 Nov 2019,29 Jan 2021,13 Jan 2021,Yes,Yes
+devs,5dcb2c51d545f50de9ee9a46,Yonnathan Alfonso Henao Restrepo,yonnathan@tyba.com.co,Yes,12 Nov 2019,29 Jan 2021,13 Jan 2021,Yes,Yes
+confluence-users,5e1caa1a4a4f900cab460f94,Santiago Rodríguez,santiago@tyba.com.co,Yes,13 Jan 2020,29 Jan 2021,27 Jan 2021,Yes,Yes
+confluence-users,5c657a3a60cf8e3dfccf9ac0,Janice Freundt,janice@tyba.com.co,Yes,14 Feb 2019,1 Feb 2021,27 Jan 2021,Yes,Yes
+confluence-users,5ebc1de79756e40b84caa60b,Ana Maria Ospina,ana@tyba.com.co,Yes,3 Jun 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5ebc1de79756e40b84caa60b,Ana Maria Ospina,ana@tyba.com.co,Yes,3 Jun 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5ecd4e1a4824b20c1820ba6e,andresmoya,andresmoya@tyba.com.com,Yes,2 Jul 2020,Never logged in,Never logged in,Yes,Yes
+confluence-users,5ecd4e1a4824b20c1820ba6e,andresmoya,andresmoya@tyba.com.com,Yes,2 Jul 2020,Never logged in,Never logged in,Yes,Yes
+confluence-users,5ebc1de706a3eb0b7e4f6af8,Gabriel Farah,gabriel@tyba.com.co,Yes,18 Dec 2020,Never logged in,Never logged in,No,Yes
+confluence-users,5cf6d1d5aab66b0db956b5a5,Horacio Plata,horacio@tyba.com.co,Yes,4 Jun 2019,1 Feb 2021,29 Jan 2021,Yes,Yes
+confluence-users,5f1ef2e68b83b700292f3fb2,especialista2,especialista2@tyba.com.co,Yes,27 Jul 2020,Never logged in,Never logged in,No,Yes
+confluence-users,5f08900a1a26ad00140f8d83,Maria Alejandra Parra Pineda,alejandra@tyba.com.co,Yes,23 Jul 2020,21 Jan 2021,25 Jan 2021,Yes,Yes
+confluence-users,5ec2b5865ba5dc0c1c58a742,Maria Jose Isaza,mariajose@tyba.com.co,Yes,18 May 2020,19 Jan 2021,11 Nov 2020,Yes,Yes
+confluence-users,5ec2abad0221530c2ea351de,Andres Moya Parra,andresmoya@tyba.com.co,Yes,18 May 2020,1 Feb 2021,29 Jan 2021,Yes,Yes
+confluence-users,5e0559cdf65a6b0e9bf0561e,Andres Rodriguez,andres@tyba.com.co,Yes,18 May 2020,18 Jan 2021,26 Aug 2020,Yes,Yes
+confluence-users,5ef3a3d24d302e0ac3103ecb,Mauricio Ramos Mayorga,mauricioramos@tyba.com.co,Yes,30 Jun 2020,30 Jan 2021,5 Jan 2021,Yes,Yes
+confluence-users,5f465ce142959b0039cffb28,Pablo Ruiz Bello,pablo@tyba.com.co,Yes,2 Oct 2020,26 Jan 2021,26 Jan 2021,Yes,Yes
+confluence-users,600ec65547a9540069e022df,Iván García Laverde,ivan@tyba.com.co,Yes,25 Jan 2021,29 Jan 2021,27 Jan 2021,Yes,Yes
+confluence-users,5f3ed80b42959b00399823cf,Youssef Abi-Fadel,youssef@tyba.com.co,Yes,20 Aug 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+confluence-users,5c657a39f3071d570623925d,Juan Pablo Garcia,juan@tyba.com.co,Yes,14 Feb 2019,10 Dec 2020,24 Aug 2020,Yes,Yes
+confluence-users,5e389b16b341530e62ace799,Marcela Gomez,marcela@tyba.com.co,Yes,3 Feb 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+confluence-users,5e1caa0f2538f60cab4ba292,Jorleidis Monsalvo,jorleidis@tyba.com.co,Yes,13 Jan 2020,15 Jul 2020,27 Mar 2020,Yes,Yes
+confluence-users,5e5d6600ab90210c8de2f6eb,Alvaro Betancourt Hurtado,alvaro@tyba.com.co,Yes,2 Mar 2020,29 Jan 2021,25 Jan 2021,Yes,Yes
+jira-software-users,5e5d6600ab90210c8de2f6eb,Alvaro Betancourt Hurtado,alvaro@tyba.com.co,Yes,2 Mar 2020,29 Jan 2021,25 Jan 2021,Yes,Yes
+confluence-users,5e387376e18f970e61a07e3d,Hernan Fernández Gil,hernan@tyba.com.co,Yes,3 Feb 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+confluence-users,5f91eadcbd13860069545244,Angie Paola Galvis Acevedo,paola@tyba.com.co,Yes,23 Oct 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+devs,5d4c2eb1c54e920cf3b810e0,Sergio David Pomarico,sergio@tyba.com.co,Yes,8 Aug 2019,1 Feb 2021,21 Jan 2021,Yes,Yes
+confluence-users,5d4c2eb1c54e920cf3b810e0,Sergio David Pomarico,sergio@tyba.com.co,Yes,8 Aug 2019,1 Feb 2021,21 Jan 2021,Yes,Yes
+jira-software-users,5e602a54cf54800ce3a00b42,Diana Marcela Muñoz Ducuara,diana@tyba.com.co,Yes,4 Mar 2020,28 Jan 2021,16 Dec 2020,Yes,Yes
+jira-software-users,5daf63c82fba7b0db2f34c87,Carlos Alberto Montoya Cantillo,carlos@tyba.com.co,Yes,22 Oct 2019,1 Feb 2021,18 Jan 2021,Yes,Yes
+jira-software-users,5cffc50c1854c30c01325622,Mayra Lopez,mayra@tyba.com.co,Yes,11 Jun 2019,25 Jan 2021,21 Jan 2021,Yes,Yes
+site-admins,5cffc50c1854c30c01325622,Mayra Lopez,mayra@tyba.com.co,Yes,11 Jun 2019,25 Jan 2021,21 Jan 2021,Yes,Yes
+jira-software-users,5e4711d64298990c97de393f,Maria Angelica Rosales Marchena,angelica@tyba.com.co,Yes,9 Mar 2020,Never logged in,8 Sep 2020,Yes,Yes
+jira-software-users,5ed40543037d930c16aee059,Mauricio Angarita,mauricio@tyba.com.co,Yes,25 Jun 2020,24 Nov 2020,24 Nov 2020,Yes,Yes
+jira-software-users,5f0cd7d21a26ad00142a4978,Maria Ana Ortiz Botero,mariaana@tyba.com.co,Yes,13 Jul 2020,1 Feb 2021,Never logged in,Yes,No
+jira-software-users,5f68cdb1cf5999006aa93f25,Julian Rios Castañeda,julianrios@tyba.com.co,Yes,21 Sep 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5fd23bb2b4a749007640a4a1,Danna Beltran,danna@tyba.com.co,Yes,10 Dec 2020,10 Dec 2020,Never logged in,Yes,No
+jira-software-users,5efd043ad630ac0bb021e3f9,Paula Vallejo,paula@tyba.com.co,Yes,1 Jul 2020,1 Feb 2021,26 Jan 2021,Yes,Yes
+jira-software-users,5efc9917d630ac0bb01f41f5,carlosvignolos,carlosvignolos@bcp.com.pe,Yes,1 Jul 2020,Never logged in,Never logged in,Yes,No
+jira-software-users,5efd15580e8e590bafd60ca9,David Chaves Tamayo,davidchaves@tyba.com.co,Yes,1 Jul 2020,29 Jan 2021,29 Jan 2021,Yes,Yes
+jira-software-users,5e15f5c762aed90daa493c3d,Samuel Useche,samuel@tyba.com.co,Yes,8 Jan 2020,28 Jan 2021,7 Jan 2021,Yes,Yes
+jira-software-users,5f3c1e8e42959b003982c8ec,John Stiben Pérez Brand,stiben@tyba.com.co,Yes,18 Aug 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5f77259e6029960076b69340,Esteban Gaviria Restrepo,esteban@tyba.com.co,Yes,2 Oct 2020,1 Feb 2021,26 Jan 2021,Yes,Yes
+jira-software-users,5f0cd7b8e407a4001c36150f,Valentina Parra Garces,valentina@tyba.com.co,Yes,13 Jul 2020,29 Jan 2021,Never logged in,Yes,No
+jira-software-users,5e9f96e761f0e70c113537a1,Juan Camilo Pedroza Maury,juank@tyba.com.co,Yes,22 Apr 2020,20 Jan 2021,8 Jan 2021,Yes,Yes
+jira-software-users,5d5d73f7e09baa0d7487809c,Johan Velasquez,johan@tyba.com.co,Yes,21 Aug 2019,29 Jan 2021,25 Jan 2021,Yes,Yes
+jira-software-users,5cf6d1d68ba9c50f2f945c05,Robinson Rueda,robinson@tyba.com.co,Yes,4 Jun 2019,1 Feb 2021,29 Jan 2021,Yes,Yes
+jira-software-users,5e011726e3b48c0daa0dbb33,Miguel Zuñiga,miguel@tyba.com.co,Yes,23 Dec 2019,22 Jan 2021,22 Jan 2021,Yes,Yes
+jira-software-users,5e387377b1188b0cbc75ba49,Bernardo Vargas Ocampo,bernardo@tyba.com.co,Yes,3 Feb 2020,14 Oct 2020,Never logged in,Yes,Yes
+jira-software-users,5d6d8421294c590c3ae5017f,Mateo Marulanda,mateo@tyba.com.co,Yes,2 Sep 2019,20 Nov 2019,Never logged in,Yes,No
+jira-software-users,5ed664f0afea830c1c6b7e0a,Julián Mora Salazar,julian@tyba.com.co,Yes,2 Jun 2020,1 Feb 2021,30 Nov 2020,Yes,Yes
+jira-software-users,5c657a387bc26f6fb6257010,Valdemaro Mendoza,valdemaro@krealo.pe,Yes,14 Feb 2019,15 Oct 2020,21 Oct 2020,Yes,Yes
+jira-software-users,5d38d88cd7be220c1ab53b67,Valdemaro Mendoza,valdemaro@tyba.com.co,Yes,10 Dec 2020,29 Jan 2021,Never logged in,Yes,No
+jira-software-users,5efb654f1225f80bb16d47f6,David Robert Assis,david@tyba.com.co,Yes,2 Jul 2020,18 Aug 2020,Never logged in,Yes,No
+jira-software-users,5e17470b61d95d0d9aa6a222,Denny Widakr Segura Diaz,denny@tyba.com.co,Yes,9 Jan 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5c9cfaba8e299f1f464965c8,Andrés Rodriguez,andres@krealo.pe,Yes,28 Mar 2019,5 May 2020,Never logged in,Yes,No
+jira-software-users,5dc1ead5828b490c5cc5c04c,Helmer Avendaño,helmer@tyba.com.co,Yes,5 Nov 2019,1 Feb 2021,27 Jan 2021,Yes,Yes
+jira-software-users,5d2388099c0d030c2977c92d,Lucho Suárez,luchotes@tektonlabs.com,Yes,25 Feb 2020,10 Aug 2020,7 May 2020,Yes,Yes
+jira-software-users,5fda528b208dbf0107dee10a,Omar Cardenas Fernandez,omar@tyba.com.co,Yes,16 Dec 2020,1 Feb 2021,17 Jan 2021,Yes,Yes
+site-admins,5fda528b208dbf0107dee10a,Omar Cardenas Fernandez,omar@tyba.com.co,Yes,16 Dec 2020,1 Feb 2021,17 Jan 2021,Yes,Yes
+jira-software-users,5f0cd77ce5efc1001b9c6f22,Camila Pantoja Gomez,camila@tyba.com.co,No,13 Jul 2020,9 Jan 2021,8 Jan 2021,Yes,Yes
+jira-software-users,5d5d6370eb84cb0cfcc8d2ae,Nicolas Muñoz,nicolas@tyba.com.co,No,21 Aug 2019,17 Nov 2020,1 Oct 2020,Yes,Yes
+jira-software-users,5dcd727e99e7ea0c60b0dbf4,Victor Manuel Villalba Torres,victor@tyba.com.co,Yes,14 Nov 2019,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5fe0b969dd5eb50108390324,Guerra,andresguerra@tyba.com.co,Yes,21 Dec 2020,29 Jan 2021,29 Jan 2021,Yes,Yes
+jira-software-users,5cf6d1d5c90d790e902d67a3,Orlando Sabogal,orlando@tyba.com.co,Yes,4 Jun 2019,19 Jan 2021,19 Jan 2021,Yes,Yes
+jira-software-users,5e5d2b0c691b8a0c95c48783,Carlos Andres Ariza,carlosa@tyba.com.co,Yes,2 Mar 2020,28 Jan 2021,28 Jan 2021,Yes,Yes
+jira-software-users,5e0511b9efa19b0e976a4ada,Carlos Guillermo Baron Rico,guillermo@tyba.com.co,Yes,26 Dec 2019,27 Jan 2021,16 Sep 2020,Yes,Yes
+jira-software-users,5ef4d40060d3c80ac91403cb,Juan Felipe Luna Bejarano,juanfelipe@tyba.com.co,Yes,26 Jun 2020,29 Jan 2021,21 Dec 2020,Yes,Yes
+jira-software-users,5e332e22ccbf660cb39b2397,salvador.tyba,salvador@tyba.com.co,Yes,30 Jan 2020,1 Feb 2021,29 Jan 2021,Yes,Yes
+site-admins,5c8fdcae627d3b2d0163b896,Gabriel Farah,gabriel@krealo.pe,Yes,18 Mar 2019,25 Jan 2021,14 Jan 2021,Yes,Yes
+jira-software-users,5c8fdcae627d3b2d0163b896,Gabriel Farah,gabriel@krealo.pe,Yes,18 Mar 2019,25 Jan 2021,14 Jan 2021,Yes,Yes
+jira-software-users,5dcb2c5191842c0deafca03b,Ricardo Andres Bejarano,ricardo@tyba.com.co,Yes,12 Nov 2019,1 Feb 2021,27 May 2020,Yes,Yes
+jira-software-users,5efd155aa115ac0bb53726b2,Ricardo Bohorquez Marulanda,ricardoandres@tyba.com.co,Yes,1 Jul 2020,1 Feb 2021,31 Jan 2021,Yes,Yes
+jira-software-users,5dc5bb658026090dfca91423,Claudia Silva,claudia@tyba.com.co,Yes,8 Nov 2019,18 Jan 2021,14 Jan 2021,Yes,Yes
+jira-software-users,5d6d83d295fbcc0c341d7a88,Leidy Reyes,leidy@tyba.com.co,Yes,2 Sep 2019,1 Feb 2021,29 Jan 2021,Yes,Yes
+jira-software-users,5e5d4312924db10e74b988d1,Juan Manuel Rodríguez Barragán,juanmanuel@tyba.com.co,Yes,2 Mar 2020,26 Jan 2021,2 Dec 2020,Yes,Yes
+jira-software-users,5e668dd67653310cfe8223a4,Juan Galvis Alzate,juangalalz@tyba.com.co,No,9 Mar 2020,14 Nov 2020,10 Aug 2020,Yes,Yes
+jira-software-users,5d519c2553184f0da389c93c,Henry Guzman,henry@tyba.com.co,Yes,12 Aug 2019,1 Feb 2021,19 Aug 2020,Yes,Yes
+jira-software-users,5e261ce8a2f3fc0ca0d5587d,Lina Kuratomi,lina@tyba.com.co,Yes,20 Jan 2020,1 Feb 2021,29 Jan 2021,Yes,Yes
+jira-software-users,5efe070824882a0bb5ffd845,Juana De la Hoz Rojano,juana@tyba.com.co,No,2 Jul 2020,9 Nov 2020,20 Oct 2020,Yes,Yes
+jira-software-users,5d9ba5e30336040dbfcb9923,Rafael De Guglielmo,rafael@tyba.com.co,Yes,7 Oct 2019,21 Jan 2021,14 Jan 2021,Yes,Yes
+jira-software-users,5cf6d1d3c90d790e902d67a2,Daniel Giraldo,daniel@tyba.com.co,Yes,4 Jun 2019,1 Feb 2021,22 Jan 2021,Yes,Yes
+jira-software-users,5f19eafcce15e80026946f7c,Cristhian Peña Jaimes,cristhian@tyba.com.co,Yes,23 Jul 2020,29 Jan 2021,29 Jan 2021,Yes,Yes
+jira-software-users,5d14d71df327650c122e7c5e,Benjamin Sanchez,benjamin@tyba.com.co,Yes,27 Jun 2019,15 Jan 2021,14 Dec 2020,Yes,Yes
+jira-software-users,5cec151cad53410f201a1503,Francisco Ricaurte,francisco@tyba.com.co,Yes,27 May 2019,1 Feb 2021,26 Jan 2021,Yes,Yes
+jira-software-users,70121:464f4020-de7a-4c9b-8e34-1f53d7978c5b,Isabela Baez Castilla,isabela@tyba.com.co,Yes,27 Jul 2020,11 Dec 2020,31 Aug 2020,Yes,Yes
+jira-software-users,600ec654f564b60071f7791c,Luis Gomez Amado,luisgomez@tyba.com.co,Yes,25 Jan 2021,1 Feb 2021,Never logged in,Yes,Yes
+site-admins,5e0e0f370af0d70e911c6d47,Jesus Zambrano,jesus@tyba.com.co,Yes,2 Jan 2020,1 Feb 2021,26 Jan 2021,Yes,Yes
+jira-software-users,5e0e0f370af0d70e911c6d47,Jesus Zambrano,jesus@tyba.com.co,Yes,2 Jan 2020,1 Feb 2021,26 Jan 2021,Yes,Yes
+jira-software-users,5e1caa026be36c0ca8b23163,Francisco Javier Gonzalez,javier@tyba.com.co,Yes,13 Jan 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+site-admins,5b7c0682b8624857f09f006c,Rafael jorge Campos Buscene,rafael@krealo.pe,Yes,14 Feb 2019,30 Dec 2020,2 Jun 2020,Yes,Yes
+jira-software-users,5dcb2c51d545f50de9ee9a46,Yonnathan Alfonso Henao Restrepo,yonnathan@tyba.com.co,Yes,12 Nov 2019,29 Jan 2021,13 Jan 2021,Yes,Yes
+jira-software-users,5e1caa1a4a4f900cab460f94,Santiago Rodríguez,santiago@tyba.com.co,Yes,13 Jan 2020,29 Jan 2021,27 Jan 2021,Yes,Yes
+site-admins,5c657a3a60cf8e3dfccf9ac0,Janice Freundt,janice@tyba.com.co,Yes,14 Feb 2019,1 Feb 2021,27 Jan 2021,Yes,Yes
+jira-software-users,5c657a3a60cf8e3dfccf9ac0,Janice Freundt,janice@tyba.com.co,Yes,14 Feb 2019,1 Feb 2021,27 Jan 2021,Yes,Yes
+jira-software-users,5cf6d1d5aab66b0db956b5a5,Horacio Plata,horacio@tyba.com.co,Yes,4 Jun 2019,1 Feb 2021,29 Jan 2021,Yes,Yes
+jira-software-users,5f08900a1a26ad00140f8d83,Maria Alejandra Parra Pineda,alejandra@tyba.com.co,Yes,23 Jul 2020,21 Jan 2021,25 Jan 2021,Yes,Yes
+jira-software-users,5ec2b5865ba5dc0c1c58a742,Maria Jose Isaza,mariajose@tyba.com.co,Yes,18 May 2020,19 Jan 2021,11 Nov 2020,Yes,Yes
+jira-software-users,5ec2abad0221530c2ea351de,Andres Moya Parra,andresmoya@tyba.com.co,Yes,18 May 2020,1 Feb 2021,29 Jan 2021,Yes,Yes
+jira-software-users,5e0559cdf65a6b0e9bf0561e,Andres Rodriguez,andres@tyba.com.co,Yes,18 May 2020,18 Jan 2021,26 Aug 2020,Yes,Yes
+jira-software-users,5ef3a3d24d302e0ac3103ecb,Mauricio Ramos Mayorga,mauricioramos@tyba.com.co,Yes,30 Jun 2020,30 Jan 2021,5 Jan 2021,Yes,Yes
+jira-software-users,5f465ce142959b0039cffb28,Pablo Ruiz Bello,pablo@tyba.com.co,Yes,2 Oct 2020,26 Jan 2021,26 Jan 2021,Yes,Yes
+jira-software-users,600ec65547a9540069e022df,Iván García Laverde,ivan@tyba.com.co,Yes,25 Jan 2021,29 Jan 2021,27 Jan 2021,Yes,Yes
+jira-software-users,5f3ed80b42959b00399823cf,Youssef Abi-Fadel,youssef@tyba.com.co,Yes,20 Aug 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5c657a39f3071d570623925d,Juan Pablo Garcia,juan@tyba.com.co,Yes,14 Feb 2019,10 Dec 2020,24 Aug 2020,Yes,Yes
+jira-software-users,5e389b16b341530e62ace799,Marcela Gomez,marcela@tyba.com.co,Yes,3 Feb 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5e1caa0f2538f60cab4ba292,Jorleidis Monsalvo,jorleidis@tyba.com.co,Yes,13 Jan 2020,15 Jul 2020,27 Mar 2020,Yes,Yes
+site-admins,5e1caa0f2538f60cab4ba292,Jorleidis Monsalvo,jorleidis@tyba.com.co,Yes,13 Jan 2020,15 Jul 2020,27 Mar 2020,Yes,Yes
+jira-software-users,5e387376e18f970e61a07e3d,Hernan Fernández Gil,hernan@tyba.com.co,Yes,3 Feb 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5f91eadcbd13860069545244,Angie Paola Galvis Acevedo,paola@tyba.com.co,Yes,23 Oct 2020,1 Feb 2021,1 Feb 2021,Yes,Yes
+jira-software-users,5d4c2eb1c54e920cf3b810e0,Sergio David Pomarico,sergio@tyba.com.co,Yes,8 Aug 2019,1 Feb 2021,21 Jan 2021,Yes,Yes
