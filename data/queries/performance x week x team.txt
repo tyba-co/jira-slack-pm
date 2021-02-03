@@ -1,16 +1,31 @@
-select top_issues_dev.project_name, avg(top_issues_dev.story_points/top_issues_dev.day_diff) as avg_points, CURRENT_DATE("UTC-5:00") as index_date 
- from (select issue.story_points, 
-            issue.stage,
-            issue.updated_at, 
-            issue.created_at,
-            issue.assignee, 
-            issue.project_name,
-            user.display_name,
-            user.email, 
-            timestamp_diff(CURRENT_TIMESTAMP(), issue.updated_at, DAY) as day_diff
-        from `k-ren-295903.jira.Issue` as issue, `k-ren-295903.jira.User` as user
-        where user.account_id = issue.assignee 
-        and issue.stage = "ENV: DEV"
-        and timestamp_diff(CURRENT_TIMESTAMP(), issue.updated_at, DAY) < 7 
-        order by story_points asc) as top_issues_dev
-  group by top_issues_dev.project_name
+SELECT
+  top_issues_dev.project_name,
+  AVG(top_issues_dev.story_points/top_issues_dev.day_diff) AS avg_points,
+  CURRENT_DATE("UTC-5:00") AS index_date
+FROM (
+  SELECT
+    (CASE
+        WHEN issue.story_points IS NULL THEN 0
+      ELSE
+      issue.story_points
+    END
+      ) AS story_points,
+    issue.stage,
+    issue.updated_at,
+    issue.created_at,
+    issue.assignee,
+    issue.project_name,
+    user.display_name,
+    user.email,
+    TIMESTAMP_DIFF(issue.updated_at, issue.created_at, SECOND)/86400 AS day_diff
+  FROM
+    `k-ren-295903.jira.Issue` AS issue,
+    `k-ren-295903.jira.User` AS user
+  WHERE
+    user.account_id = issue.assignee
+    AND issue.stage = "ENV: DEV"
+    AND TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), issue.updated_at, DAY) < 7
+  ORDER BY
+    story_points ASC) AS top_issues_dev
+GROUP BY
+  top_issues_dev.project_name

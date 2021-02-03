@@ -235,4 +235,3 @@ def load_new_issues_into_bigquery(project_id, database_name):
                         user["accountId"], user["accountType"]
                     )
                 )
-                
