@@ -20,7 +20,7 @@ FROM (
   WHERE
     user.account_id = issue.assignee
     AND issue.stage = "ENV: DEV"
-    AND TIMESTAMP_DIFF(TIMESTAMP(CURRENT_TIMESTAMP(), "UTC-5:00"), issue.updated_at, DAY) <= 7
+    AND TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), "UTC-5:00"), issue.updated_at, DAY) <= 7
   ORDER BY
     story_points ASC) AS top_issues_dev
 GROUP BY

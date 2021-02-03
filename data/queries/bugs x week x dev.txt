@@ -1,0 +1,20 @@
+SELECT
+  issue.assignee,
+  user.display_name,
+  user.email,
+  COUNT(issue.issue_type) AS week_bugs,
+  CURRENT_DATE("UTC-5:00") AS index_date
+FROM
+  `k-ren-295903.jira.Issue` AS issue,
+  `k-ren-295903.jira.User` AS user
+WHERE
+  issue.assignee = user.account_id
+  AND issue.issue_type = "Error"
+  AND TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), issue.created_at, DAY) <= 7
+  AND issue.project_name != "Support"
+GROUP BY
+  issue.assignee,
+  user.display_name,
+  user.email
+ORDER BY
+  week_bugs DESC

@@ -1,0 +1,9 @@
+SELECT
+  COUNT(issue.issue_type) AS week_bugs,
+  CURRENT_DATE("UTC-5:00") AS index_date
+FROM
+  `k-ren-295903.jira.Issue` AS issue
+WHERE
+  issue.issue_type = "Error"
+  AND TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), issue.created_at, DAY) <= 7
+  AND issue.project_name != "Support"
