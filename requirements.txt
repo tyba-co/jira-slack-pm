@@ -1,4 +1,8 @@
-python-dateutil~=2.8.1
-pytz~=2020.1
-requests~=2.24.0
-pydash~=4.8.0
+python-dateutil>=2.8.1
+DateTime>=4.3
+pytz>=2020.1
+requests>=2.25.1
+pydash>=4.9.2
+typing>=3.7.4
+google-api-core>=1.25.1
+google-cloud-bigquery>=2.7.0
