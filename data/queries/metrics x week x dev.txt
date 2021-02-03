@@ -1,0 +1,86 @@
+SELECT
+  (CASE
+      WHEN issues.assignee IS NULL THEN bugs.assignee
+    ELSE
+    issues.assignee
+  END
+    ) AS assignee,
+  (CASE
+      WHEN issues.display_name IS NULL THEN bugs.display_name
+    ELSE
+    issues.display_name
+  END
+    ) AS display_name,
+  (CASE
+      WHEN issues.email IS NULL THEN bugs.email
+    ELSE
+    issues.email
+  END
+    ) AS email,
+  (CASE
+      WHEN issues.avg_points IS NULL THEN 0
+    ELSE
+    issues.avg_points
+  END
+    ) AS avg_points,
+  (CASE
+      WHEN bugs.week_bugs IS NULL THEN 0
+    ELSE
+    bugs.week_bugs
+  END
+    ) AS week_bugs,
+  CURRENT_DATE("UTC-5:00") AS index_date
+FROM (
+  SELECT
+    top_issues_dev.assignee,
+    top_issues_dev.display_name,
+    top_issues_dev.email,
+    AVG(top_issues_dev.story_points/top_issues_dev.day_diff) AS avg_points,
+  FROM (
+    SELECT
+      (CASE
+          WHEN issue.story_points IS NULL THEN 0
+        ELSE
+        issue.story_points
+      END
+        ) AS story_points,
+      issue.stage,
+      issue.updated_at,
+      issue.created_at,
+      issue.assignee,
+      user.display_name,
+      user.email,
+      TIMESTAMP_DIFF(issue.updated_at, issue.created_at, SECOND)/86400 AS day_diff
+    FROM
+      `k-ren-295903.jira.Issue` AS issue,
+      `k-ren-295903.jira.User` AS user
+    WHERE
+      user.account_id = issue.assignee
+      AND issue.stage = "ENV: DEV"
+      AND TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), issue.updated_at, DAY) <= 7) AS top_issues_dev
+  GROUP BY
+    top_issues_dev.assignee,
+    top_issues_dev.display_name,
+    top_issues_dev.email) AS issues
+FULL OUTER JOIN (
+  SELECT
+    issue.assignee,
+    user.display_name,
+    user.email,
+    COUNT(issue.issue_type) AS week_bugs,
+  FROM
+    `k-ren-295903.jira.Issue` AS issue,
+    `k-ren-295903.jira.User` AS user
+  WHERE
+    issue.assignee = user.account_id
+    AND issue.issue_type = "Error"
+    AND TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), issue.created_at, DAY) <= 7
+    AND issue.project_name != "Support"
+  GROUP BY
+    issue.assignee,
+    user.display_name,
+    user.email
+) AS bugs
+ON
+  issues.assignee = bugs.assignee
+ORDER BY avg_points DESC
